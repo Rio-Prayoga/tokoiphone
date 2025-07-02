@@ -168,7 +168,7 @@ const Home: React.FC = () => {
 
       {/* Featured Products */}
       <section className="pt-4 pb-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-2">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Produk Unggulan</h2>
             <p className="text-gray-600 max-w-1xl mx-auto">
@@ -182,7 +182,7 @@ const Home: React.FC = () => {
               key={product.id}
               className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <div className="relative aspect-[3/3] w-full overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -197,53 +197,53 @@ const Home: React.FC = () => {
                     Stok: {product.stock}
                   </div>
                 </div>
-                <div className="p-4 flex flex-col flex-1">
-                  <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-xs text-gray-600 mb-1">{product.storage} • {product.color}</p>
-                  <div className="flex items-center mb-3">
-                    <div className="flex items-center space-x-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(product.rating)
-                              ? 'text-yellow-400 fill-current'
-                              : 'text-gray-300'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-xs text-gray-600 ml-2">({product.rating})</span>
+                
+                <div className="pt-3 pb-2 px-4 flex flex-col flex-1">
+                <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
+                <p className="text-xs text-gray-600 mb-1">{product.storage} • {product.color}</p>
+                <div className="flex items-center mb-2">
+                  <div className="flex items-center space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-4 w-4 ${i < Math.floor(product.rating)
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300'}`}
+                      />
+                    ))}
                   </div>
-                  <div className="mb-4">
-                    {product.originalPrice && (
-                      <p className="text-xs text-gray-500 line-through">
-                        {formatPrice(product.originalPrice)}
-                      </p>
-                    )}
-                    <p className="text-base font-bold text-blue-600">
-                      {formatPrice(product.price)}
-                    </p>
-                  </div>
-                  <div className="mt-auto space-y-2">
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200"
-                    >
-                      Lihat Detail
-                    </Link>
-                    <button
-                      className="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700"
-                    >
-                      + Keranjang
-                    </button>
-                  </div>
+                  <span className="text-xs text-gray-600 ml-2">({product.rating})</span>
                 </div>
+                <div className="mb-3">
+                  {product.originalPrice && (
+                    <p className="text-xs text-gray-500 line-through">
+                      {formatPrice(product.originalPrice)}
+                    </p>
+                  )}
+                  <p className="text-base font-bold text-blue-600">
+                    {formatPrice(product.price)}
+                  </p>
+                </div>
+                <div className="mt-auto space-y-2">
+                  <Link
+                    to={`/products/${product.id}`}
+                    className="block w-full bg-gray-100 text-gray-700 text-center py-1.5 rounded-lg hover:bg-gray-200"
+                  >
+                    Lihat Detail
+                  </Link>
+                  <button
+                    className="block w-full bg-blue-600 text-white text-center py-1.5 rounded-lg hover:bg-blue-700"
+                  >
+                    + Keranjang
+                  </button>
+                </div>
+              </div>
+
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-7">
             <Link
               to="/products"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition"
@@ -285,7 +285,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-3 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Testimoni Pelanggan</h2>
