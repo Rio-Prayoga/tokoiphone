@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { Filter, Star, Grid, List } from 'lucide-react';
 import { products, categories, storageOptions, colorOptions } from '../data/products';
 import { useCart } from '../contexts/CartContext';
@@ -15,6 +16,23 @@ const Products: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   
   const { dispatch } = useCart();
+
+  const location = useLocation();
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const search = params.get('search');
+
+    if (search) {
+      const keyword = search.toLowerCase();
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(keyword)
+      );
+      setFilteredProducts(filtered);
+    } else {
+      handleFilter();
+    }
+  }, [location.search]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('id-ID', {
