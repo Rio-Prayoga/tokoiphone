@@ -105,26 +105,42 @@ const Home: React.FC = () => {
                 }}
               >
                 <div className="flex items-center justify-center h-full">
-                  <div className="text-center text-white max-w-4xl mx-auto px-4">
-                    <div className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium mb-4">
-                      Diskon {slide.discount}
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h1>
-                    <h2 className="text-xl md:text-2xl font-light mb-4">{slide.subtitle}</h2>
-                    <p className="text-lg mb-6 max-w-2xl mx-auto">{slide.description}</p>
-                    <div className="mb-8">
-                      <p className="text-sm line-through text-gray-300">{slide.originalPrice}</p>
-                      <p className="text-2xl font-bold text-yellow-400">{slide.currentPrice}</p>
-                    </div>
-                    <Link
-                      to="/products"
-                      className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-                    >
-                      Pesan Sekarang
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </div>
+                <div className="text-center text-white max-w-4xl mx-auto px-4 space-y-2 md:space-y-4">
+                <div className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Diskon {slide.discount}
                 </div>
+
+                <h1 className="text-3xl md:text-6xl font-bold">
+                  {slide.title}
+                </h1>
+
+                <h2 className="text-lg md:text-2xl font-light">
+                  {slide.subtitle}
+                </h2>
+
+                <p className="text-sm md:text-lg max-w-2xl mx-auto">
+                  {slide.description}
+                </p>
+
+                <div>
+                  <p className="text-sm line-through text-gray-300">
+                    {slide.originalPrice}
+                  </p>
+                  <p className="text-xl md:text-2xl font-bold text-yellow-400">
+                    {slide.currentPrice}
+                  </p>
+                </div>
+
+                <Link
+                  to="/products"
+                  className="inline-flex items-center bg-blue-600 text-white px-5 py-2 md:px-6 md:py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm md:text-base"
+                >
+                  Pesan Sekarang
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                </div>
+              </div>
+
               </div>
             </div>
           ))}
@@ -150,40 +166,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Fitur Section */}
-      <section className="py-12 bg-white">
-        <div className="px-4 overflow-x-auto">
-          <div className="flex gap-6 min-w-[640px] md:min-w-full justify-between">
-            <div className="flex-1 text-center min-w-[200px]">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-1">Garansi Resmi</h3>
-              <p className="text-gray-600 text-sm">Semua produk dilengkapi garansi resmi dan keaslian 100%</p>
-            </div>
-            <div className="flex-1 text-center min-w-[200px]">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-1">Pengiriman Cepat</h3>
-              <p className="text-gray-600 text-sm">Pengiriman aman ke seluruh Indonesia</p>
-            </div>
-            <div className="flex-1 text-center min-w-[200px]">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-1">Customer Support</h3>
-              <p className="text-gray-600">Tim support kami siap bantu 24 jam melalui WhatsApp</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products */}
-      <section className="py-16 bg-gray-50">
+      <section className="pt-4 pb-4 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Produk Unggulan</h2>
+          <div className="text-center mb-2">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Produk Unggulan</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Koleksi iPhone terbaru dengan harga terbaik dan kualitas terjamin
             </p>
@@ -212,7 +199,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="p-4 flex flex-col flex-1">
                   <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{product.storage} • {product.color}</p>
+                  <p className="text-xs text-gray-600 mb-1">{product.storage} • {product.color}</p>
                   <div className="flex items-center mb-3">
                     <div className="flex items-center space-x-1">
                       {[...Array(5)].map((_, i) => (
@@ -226,15 +213,15 @@ const Home: React.FC = () => {
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600 ml-2">({product.rating})</span>
+                    <span className="text-xs text-gray-600 ml-2">({product.rating})</span>
                   </div>
                   <div className="mb-4">
                     {product.originalPrice && (
-                      <p className="text-sm text-gray-500 line-through">
+                      <p className="text-xs text-gray-500 line-through">
                         {formatPrice(product.originalPrice)}
                       </p>
                     )}
-                    <p className="text-lg font-bold text-blue-600">
+                    <p className="text-base font-bold text-blue-600">
                       {formatPrice(product.price)}
                     </p>
                   </div>
@@ -264,6 +251,35 @@ const Home: React.FC = () => {
               Lihat Semua Produk
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Fitur Section */}
+      <section className="py-12 bg-white">
+        <div className="px-4 overflow-x-auto">
+          <div className="flex gap-6 min-w-[640px] md:min-w-full justify-between">
+            <div className="flex-1 text-center min-w-[200px]">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-1">Garansi Resmi</h3>
+              <p className="text-gray-600 text-sm">Semua produk dilengkapi garansi resmi dan keaslian 100%</p>
+            </div>
+            <div className="flex-1 text-center min-w-[200px]">
+              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Truck className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-1">Pengiriman Cepat</h3>
+              <p className="text-gray-600 text-sm">Pengiriman aman ke seluruh Indonesia</p>
+            </div>
+            <div className="flex-1 text-center min-w-[200px]">
+              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-lg font-semibold mb-1">Customer Support</h3>
+              <p className="text-gray-600">Tim support kami siap bantu 24 jam melalui WhatsApp</p>
+            </div>
           </div>
         </div>
       </section>
