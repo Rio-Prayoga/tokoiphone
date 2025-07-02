@@ -54,16 +54,16 @@ const Login: React.FC = () => {
         <div className="flex justify-center">
           <div className="flex items-center space-x-2">
             <Smartphone className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">iPhone Inter</span>
+            <span className="text-2xl font-bold text-gray-900">Riostore.id</span>
           </div>
         </div>
         <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
           Masuk ke Akun Anda
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Atau{' '}
+          Belum punya akun?{' '}
           <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500">
-            daftar akun baru
+            daftar dulu
           </Link>
         </p>
       </div>
