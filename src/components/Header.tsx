@@ -30,8 +30,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <Smartphone className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">iPhone Inter</span>
+            <img src="/img/logo.jpeg" alt="Riostore Logo" className="h-8 w-8" />
+            <span className="text-xl font-bold text-gray-900">Riostore.id</span>
           </Link>
 
           {/* Desktop Navigation */}
