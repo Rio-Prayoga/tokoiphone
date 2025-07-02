@@ -170,8 +170,8 @@ const Home: React.FC = () => {
       <section className="pt-4 pb-4 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-2">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Produk Unggulan</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Produk Unggulan</h2>
+            <p className="text-gray-600 max-w-1xl mx-auto">
               Koleksi iPhone terbaru dengan harga terbaik dan kualitas terjamin
             </p>
           </div>
