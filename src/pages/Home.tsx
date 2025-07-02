@@ -96,9 +96,7 @@ const Home: React.FC = () => {
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
             >
               <div
                 className="w-full h-full bg-cover bg-center"
@@ -132,58 +130,50 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
-        >
+        {/* Arrows */}
+        <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full">
           <ChevronLeft className="h-6 w-6" />
         </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
-        >
+        <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full">
           <ChevronRight className="h-6 w-6" />
         </button>
 
-        {/* Dots Indicator */}
+        {/* Dots */}
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
-              }`}
+              className={`w-3 h-3 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-white/50'}`}
             />
           ))}
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
+      {/* Fitur Section */}
+      <section className="py-12 bg-white">
+        <div className="px-4 overflow-x-auto">
+          <div className="flex gap-6 min-w-[640px] md:min-w-full justify-between">
+            <div className="flex-1 text-center min-w-[200px]">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Garansi Resmi</h3>
-              <p className="text-gray-600">Semua produk dilengkapi garansi resmi dan bergaransi keaslian 100%</p>
+              <h3 className="text-lg font-semibold mb-1">Garansi Resmi</h3>
+              <p className="text-gray-600 text-sm">Semua produk dilengkapi garansi resmi dan keaslian 100%</p>
             </div>
-            <div className="text-center">
+            <div className="flex-1 text-center min-w-[200px]">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Truck className="h-8 w-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Pengiriman Cepat</h3>
-              <p className="text-gray-600">Pengiriman ke seluruh Indonesia dengan packaging aman dan terpercaya</p>
+              <h3 className="text-lg font-semibold mb-1">Pengiriman Cepat</h3>
+              <p className="text-gray-600 text-sm">Pengiriman aman ke seluruh Indonesia</p>
             </div>
-            <div className="text-center">
+            <div className="flex-1 text-center min-w-[200px]">
               <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Customer Support</h3>
-              <p className="text-gray-600">Tim customer service siap membantu 24/7 melalui WhatsApp</p>
+              <h3 className="text-lg font-semibold mb-1">Customer Support</h3>
+              <p className="text-gray-600">Tim support kami siap bantu 24 jam melalui WhatsApp</p>
             </div>
           </div>
         </div>
@@ -198,81 +188,78 @@ const Home: React.FC = () => {
               Koleksi iPhone terbaru dengan harga terbaik dan kualitas terjamin
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {featuredProducts.map((product) => (
-    <div
-      key={product.id}
-      className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
-    >
-      <div className="relative">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-48 object-cover"
-        />
-        {product.originalPrice && (
-          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-medium">
-            Diskon
-          </div>
-        )}
-        <div className="absolute top-2 right-2 bg-white/90 backdrop-blur px-2 py-1 rounded text-xs font-medium">
-          Stok: {product.stock}
-        </div>
-      </div>
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
-        <p className="text-sm text-gray-600 mb-2">{product.storage} • {product.color}</p>
-        <div className="flex items-center mb-3">
-          <div className="flex items-center space-x-1">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className={`h-4 w-4 ${
-                  i < Math.floor(product.rating)
-                    ? 'text-yellow-400 fill-current'
-                    : 'text-gray-300'
-                }`}
-              />
+
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProducts.map((product) => (
+              <div
+              key={product.id}
+              className="flex flex-col bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
+            >
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-contain"
+                />
+                  {product.originalPrice && (
+                    <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded">
+                      Diskon
+                    </div>
+                  )}
+                  <div className="absolute top-2 right-2 bg-white/90 px-2 py-1 text-xs rounded">
+                    Stok: {product.stock}
+                  </div>
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{product.storage} • {product.color}</p>
+                  <div className="flex items-center mb-3">
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-4 w-4 ${
+                            i < Math.floor(product.rating)
+                              ? 'text-yellow-400 fill-current'
+                              : 'text-gray-300'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-600 ml-2">({product.rating})</span>
+                  </div>
+                  <div className="mb-4">
+                    {product.originalPrice && (
+                      <p className="text-sm text-gray-500 line-through">
+                        {formatPrice(product.originalPrice)}
+                      </p>
+                    )}
+                    <p className="text-lg font-bold text-blue-600">
+                      {formatPrice(product.price)}
+                    </p>
+                  </div>
+                  <div className="mt-auto space-y-2">
+                    <Link
+                      to={`/products/${product.id}`}
+                      className="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200"
+                    >
+                      Lihat Detail
+                    </Link>
+                    <button
+                      className="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700"
+                    >
+                      + Keranjang
+                    </button>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-          <span className="text-sm text-gray-600 ml-2">({product.rating})</span>
-        </div>
-        <div className="mb-4">
-          {product.originalPrice && (
-            <p className="text-sm text-gray-500 line-through">
-              {formatPrice(product.originalPrice)}
-            </p>
-          )}
-          <p className="text-lg font-bold text-blue-600">
-            {formatPrice(product.price)}
-          </p>
-        </div>
-
-        {/* Tombol selalu di bawah */}
-        <div className="mt-auto space-y-2">
-          <Link
-            to={`/products/${product.id}`}
-            className="block w-full bg-gray-100 text-gray-700 text-center py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium"
-          >
-            Lihat Detail
-          </Link>
-          <button
-            className="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          >
-            + Keranjang
-          </button>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
 
           <div className="text-center mt-12">
             <Link
               to="/products"
-              className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition"
             >
               Lihat Semua Produk
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -290,26 +277,26 @@ const Home: React.FC = () => {
               Ribuan pelanggan telah mempercayai iPhone Inter untuk kebutuhan iPhone mereka
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-gray-50 rounded-xl p-6">
+            {testimonials.map((t) => (
+              <div key={t.id} className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
+                    src={t.avatar}
+                    alt={t.name}
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <div className="flex items-center">
-                      {[...Array(testimonial.rating)].map((_, i) => (
+                    <h4 className="font-semibold text-gray-900">{t.name}</h4>
+                    <div className="flex">
+                      {[...Array(t.rating)].map((_, i) => (
                         <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
                       ))}
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-600 italic">"{testimonial.comment}"</p>
+                <p className="text-gray-600 italic">"{t.comment}"</p>
               </div>
             ))}
           </div>
@@ -328,7 +315,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/products"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100"
             >
               Lihat Katalog
             </Link>
@@ -336,7 +323,7 @@ const Home: React.FC = () => {
               href="https://wa.me/6285840469673"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition-colors font-medium"
+              className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600"
             >
               Chat WhatsApp
             </a>
