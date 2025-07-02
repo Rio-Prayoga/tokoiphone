@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Smartphone className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">iPhone Inter</span>
+              <span className="text-xl font-bold">Riostore.id</span>
             </div>
             <p className="text-gray-300 text-sm">
               Toko terpercaya untuk semua kebutuhan iPhone Anda. Kualitas terjamin, harga terbaik, dan pelayanan profesional.
